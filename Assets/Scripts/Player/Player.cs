@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
 
 	public int currentScore; // player's current score
 
+
 	public Transform myTransform; //modifying the player's position 
 	public float barDisplay = 0; 
 	private Vector2 _healthBarPosition = new Vector2(20,40); 
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour {
 
 	}
 
-	void OnGUI() {
+	/*void OnGUI() {
 		
 		// draw the background:
 		GUI.BeginGroup (new Rect (_healthBarPosition.x, _healthBarPosition.y, _healthBarSize.x, _healthBarSize.y));
@@ -55,5 +56,7 @@ public class Player : MonoBehaviour {
 		GUI.EndGroup ();
 
 		GUI.EndGroup ();
-	}
+	}*/
+
+
 }
