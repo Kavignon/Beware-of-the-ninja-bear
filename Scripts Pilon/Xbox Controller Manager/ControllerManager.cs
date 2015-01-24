@@ -7,6 +7,8 @@ public class ControllerManager : MonoBehaviour
     public enum PlayerNumber { player_1, player_2, player_3, player_4 };
 
     public float moveSpeed = 2f;
+    public float moveSpeedModifier;
+    public float moveSpeedModifierDuration;
     public PlayerNumber playerNum;
     public int controllerNum;
 
@@ -15,6 +17,7 @@ public class ControllerManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        gameObject.tag = "Player";
         switch (playerNum)
         {
             case PlayerNumber.player_1:
