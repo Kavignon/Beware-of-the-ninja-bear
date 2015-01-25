@@ -70,8 +70,12 @@ public class Food : MonoBehaviour
             if (XCI.GetButtonDown(XboxButton.X, playerNumber))
             {
                 player.GetComponent<HealthManager>().currentHealth += healthRestored;
+				AttributeScore();
                 Destroy(gameObject);
             }
         }
     }
+
+	public void AttributeScore(){
+		}
 }
