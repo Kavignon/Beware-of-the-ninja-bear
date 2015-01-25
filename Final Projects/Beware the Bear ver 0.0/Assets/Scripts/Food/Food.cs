@@ -60,8 +60,12 @@ public class Food : MonoBehaviour
             {
                 player.GetComponent<ControllerManager>().anim.SetFloat("Eating", 1);
                 player.GetComponent<HealthManager>().currentHealth += healthRestored;
+				AttributeScore();
                 Destroy(gameObject);
             }
         }
     }
+
+	public void AttributeScore(){
+		}
 }

@@ -55,7 +55,7 @@ public class NewPlayerHealth : MonoBehaviour {
 
 		currentHealth =(int) Mathf.Clamp(currentHealth - ((1000 / sanityDrainSpeed)),0.0f,startingHealth);
 		healthSlider.value = currentHealth;
-		ModifyHealthBarColor ();
+		//ModifyHealthBarColor ();
 		if(currentHealth <= 0 && !isDead)
 		{
 			Death ();

@@ -11,7 +11,7 @@ public class NinjaBear : MonoBehaviour
 	GameObject player; 								// Reference to the player GameObject.
 	NewPlayerHealth playerHealth;                  // Reference to the player's health.
 	float timer;
-	float ninjaStrenght;
+	public float ninjaStrenght;
 	//AttackEnum randomAttack;
 	GameObject[] players;
 
