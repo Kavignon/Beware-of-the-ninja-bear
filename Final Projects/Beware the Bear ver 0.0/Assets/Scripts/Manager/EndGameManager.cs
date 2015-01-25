@@ -10,7 +10,8 @@ public class EndGameManager : MonoBehaviour {
 	public bool isEndGame;
 	public GameObject[] currentPlayers;
 	public int[] playerRanking;
-
+	public float timer;
+	public float reloadTime =5;
 
 	// Use this for initialization
 	void Start () {
@@ -37,6 +38,15 @@ public class EndGameManager : MonoBehaviour {
 		if (gameDurationTimer >= timeLimit) 
 		{
 			EndTheGame();
+			if (timer <= reloadTime && isEndGame==true)
+			{
+				timer+=Time.deltaTime;
+			}
+			else
+			{
+				Application.LoadLevel(Application.loadedLevel);
+			}
+
 		}
 	}
 
@@ -88,4 +98,7 @@ public class EndGameManager : MonoBehaviour {
 		}
 		Console.ReadLine();
 	}
+
+
+
 }
