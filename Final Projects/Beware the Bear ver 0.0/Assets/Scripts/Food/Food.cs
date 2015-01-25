@@ -1,5 +1,5 @@
 ﻿////Uncomment to activate Debug logs;
-#define DEBUG
+//#define DEBUG
 using UnityEngine;
 using System.Collections;
 using XboxCtrlrInput;
