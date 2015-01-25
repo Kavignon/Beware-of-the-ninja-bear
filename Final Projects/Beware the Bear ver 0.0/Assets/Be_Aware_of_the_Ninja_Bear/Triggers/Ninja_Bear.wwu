@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{654A24F9-AC51-47FB-9063-29E43137D2D1}" SchemaVersion="62">
+	<Triggers>
+		<WorkUnit Name="Ninja_Bear" ID="{654A24F9-AC51-47FB-9063-29E43137D2D1}" PersistMode="Standalone">
+			<ChildrenList>
+				<Trigger Name="Bear_Activated" ID="{094B3EE1-D3A6-40CA-8E8F-94D06EA0BD39}" />
+			</ChildrenList>
+		</WorkUnit>
+	</Triggers>
+</WwiseDocument>

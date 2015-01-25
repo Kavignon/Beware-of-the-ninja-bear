@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<WwiseSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <WwiseProjectPath>../Be_Aware_of_the_Ninja_Bear/Be_Aware_of_the_Ninja_Bear.wproj</WwiseProjectPath>
+  <SoundbankPath>Audio\GeneratedSoundBanks</SoundbankPath>
+  <CreateWwiseGlobal>true</CreateWwiseGlobal>
+  <CreateWwiseListener>true</CreateWwiseListener>
+  <OldProject>false</OldProject>
+</WwiseSettings>

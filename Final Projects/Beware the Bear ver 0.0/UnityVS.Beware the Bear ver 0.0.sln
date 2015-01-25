@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.Beware the Bear ver 0.0.CSharp", "UnityVS.Beware the Bear ver 0.0.CSharp.csproj", "{811A1B30-3CEE-939D-37AA-C1ACE176D47E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.Beware the Bear ver 0.0.CSharp.Editor", "UnityVS.Beware the Bear ver 0.0.CSharp.Editor.csproj", "{904E55A1-C8CA-1D7A-284A-5D633E098304}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.Beware the Bear ver 0.0.CSharp.Plugins", "UnityVS.Beware the Bear ver 0.0.CSharp.Plugins.csproj", "{AB1B026A-CDAF-6201-AB95-C518AC67D3DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{811A1B30-3CEE-939D-37AA-C1ACE176D47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{811A1B30-3CEE-939D-37AA-C1ACE176D47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{811A1B30-3CEE-939D-37AA-C1ACE176D47E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{904E55A1-C8CA-1D7A-284A-5D633E098304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{904E55A1-C8CA-1D7A-284A-5D633E098304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{904E55A1-C8CA-1D7A-284A-5D633E098304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{904E55A1-C8CA-1D7A-284A-5D633E098304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB1B026A-CDAF-6201-AB95-C518AC67D3DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB1B026A-CDAF-6201-AB95-C518AC67D3DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB1B026A-CDAF-6201-AB95-C518AC67D3DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB1B026A-CDAF-6201-AB95-C518AC67D3DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

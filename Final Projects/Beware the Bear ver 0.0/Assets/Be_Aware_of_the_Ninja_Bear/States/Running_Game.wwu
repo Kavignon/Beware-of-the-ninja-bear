@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{75378BDD-134F-4DDC-88D1-644A6D432499}" SchemaVersion="62">
+	<States>
+		<WorkUnit Name="Running_Game" ID="{75378BDD-134F-4DDC-88D1-644A6D432499}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="Stage" ID="{E705FDD2-3342-4D7E-93C0-646B7218630B}">
+					<ChildrenList>
+						<State Name="None" ID="{8B532508-5687-4DE6-8F3E-F74FB6F02E65}" />
+						<State Name="Running" ID="{DC2A4738-3023-4EBB-900B-EE4B685CE648}" />
+						<State Name="Bear_Combat" ID="{496EE943-3EA2-473A-809B-279851D2F5DA}" />
+						<State Name="Victory" ID="{CEAF0FB7-DDCC-4D21-B359-DEAE284DFF43}" />
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</States>
+</WwiseDocument>
