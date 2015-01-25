@@ -1,79 +1,104 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
+
+
 public class NinjaBear : MonoBehaviour {
-	public int waitingPeriodForSummoning = 5000; // A user shall wait 5 seconds before the ninja bear can be summoned
+    public bool canBeSummoned=true;
+    Animator ninjaBearAnimation;
+    AudioSource ninjaBearAudio;
+    public AudioClip smokeClip;
+    public AudioClip damageClip;
+    GameObject player; 								// Reference to the player GameObject.
+    NewPlayerHealth playerHealth;                  // Reference to the player's health.
+    float timer;
+    float ninjaStrenght;
+    //AttackEnum randomAttack;
+    GameObject[] players;
 
-	public bool canBeSummoned;
-	Animator ninjaBearAnimation;
-	AudioSource ninjaBearAudio;
-	public AudioClip smokeClip;
-	public AudioClip damageClip;
-	GameObject player; 								// Reference to the player GameObject.
-	NewPlayerHealth playerHealth;                  // Reference to the player's health.
-	bool playerInRange;                      	  // Whether player is within the trigger collider and can be attacked.
-	float timer;
-	float ninjaStrenght;
-	AttackEnum randomAttack;
-	Transform bearLocation;
-	ArrayList players;
-	Player wantedPlayer;
+    // Use this for initialization
+    void Start()
+    {
+        canBeSummoned = false;
+        ninjaStrenght = 35;
+        timer += Time.deltaTime;
+        players = GameObject.FindGameObjectsWithTag("Player");
 
+    }
 
-	// Use this for initialization
-	void Start () {
-		canBeSummoned = false;
-		playerInRange = false;
-		ninjaStrenght = 35;
-		timer += Time.deltaTime;
-		bearLocation = transform;
-		//player = new GameObject ();
-		//ThrowSmokeBomb ();
+    public void PerformTestAttackOnPlayer()
+    {
+		int indexPlayer = Random.Range (0, players.Length);
+		players[indexPlayer].GetComponent<Player>().playerHealth.TakeDamageFromBear((int)ninjaStrenght);
+    }
 
-		///Test
-	
-		player = GameObject.FindGameObjectWithTag ("Player");
-		PerformTestAttackOnPlayer ();
-
-	}
-
-	void PerformTestAttackOnPlayer()
+	void PerformPatternAttack(Player p)
 	{
-		//player.playerHealth.TakeDamageFromBear ((int)ninjaStrenght);
-		player.GetComponent<Player> ().playerHealth.TakeDamageFromBear ((int)ninjaStrenght);
+		p.playerHealth.TakeDamageFromBear ((int)ninjaStrenght);
 	}
 
-
-	/*void Awake()
+	void Awake()
 	{
 		// Setting up the references.
 		ninjaBearAnimation = GetComponent <Animator> ();
 		ninjaBearAudio = GetComponent <AudioSource> ();
-		//basic behavior
-		player = GameObject.FindGameObjectWithTag ("Player");
-		//real behaviour
-		players = new ArrayList ()
-		{
-			GameObject.FindGameObjectWithTag ("Player1"),
-			GameObject.FindGameObjectWithTag ("Player2"),
-			GameObject.FindGameObjectWithTag ("Player3"),
-			GameObject.FindGameObjectWithTag ("Player4")
-		};
-		playerHealth = player.GetComponent <NewPlayerHealth> ();
-
-		RandomSurpriseAttack ();
 	}
-	*/
+
 	// Update is called once per frame
 	void Update () {
 
-		if (Time.time > timer) 
-		{
-			canBeSummoned = true;
-			timer = Time.time + waitingPeriodForSummoning;
+		
+	}
 
+	public void SummonNinjaBear()
+	{
+		if (canBeSummoned) {
+			ninjaBearAnimation.SetTrigger ("ThrowSmokeBomb");
+			ninjaBearAudio.clip = smokeClip;
+			PerformTestAttackOnPlayer();
 		}
 	}
+
+	AttackOptionEnum RandomiseAttackOption(){
+		System.Array values = System.Enum.GetValues(typeof(AttackOptionEnum));
+		System.Random random = new System.Random();
+		AttackOptionEnum randomAttack = (AttackOptionEnum)values.GetValue(random.Next(values.Length));
+		return randomAttack;
+	}
+
+
+	void RandomSurpriseAttack(){
+		//Random.Range does not seem to work
+		//Surprising the players with automatic surprise attack at any time during the game (once)
+		//Using the attack option of either one (random) or all of them.
+		//SelectAttackPattern (RandomiseAttackOption ());
+	}
+
+	/*void SelectAttackPattern(AttackOptionEnum attackOption){
+		if (attackOption.ToString () == AttackOptionEnum.AttackAllPlayers.ToString()) {
+			foreach (Player p in players) {
+				PerformPatternAttack (p);
+			}
+		} else if (attackOption.ToString () == AttackOptionEnum.AttackAPlayer.ToString()) {
+			int selectedPlayer = Random.Range(0, 3);
+			Player player = (Player)players.IndexOf(selectedPlayer,);
+			PerformPatternAttack (player); //should be selectedPlayer !!!
+		} else if (attackOption.ToString () == AttackOptionEnum.AttackFatPlayers.ToString()) {
+			foreach (Player p in players) {
+				if (p.playerHealth.isFat) {
+					PerformPatternAttack (p);
+				}
+			}
+		} else {
+			foreach (Player p in players) {
+				if (p.playerHealth.isHealthy) {
+					PerformPatternAttack (p);
+				}
+			}
+		}
+		
+	}*/
+	/*
+
 	//Activate the animation of throwing a smoke bomb
 	void ThrowSmokeBomb(){
 		ninjaBearAnimation.SetTrigger ("ThrowSmokeBomb");
@@ -93,18 +118,6 @@ public class NinjaBear : MonoBehaviour {
 
 	}
 
-	//Attack a player if he gets in contact with the ninja
-	void OnTriggerEnter (Collider other)
-	{
-		// If the entering collider is the player...
-		if(other.gameObject == player)
-		{
-			// ... the player is in range.
-			playerInRange = true;
-			//attack the player
-			PerformAttack();
-		}
-	}
 
 	//Summon the ninja bear to attack a player if it's possible
 	void SummonNinjaBear()
@@ -157,10 +170,8 @@ public class NinjaBear : MonoBehaviour {
 								PerformSurpriseAtttack (p);
 						}
 		} else if (attackOption.ToString () == AttackOptionEnum.AttackAPlayer.ToString()) {
-			//int selectedPlayer = Random.Range(0,3)
-			//hard coded value for now
-			int selectedPlayerIndex = 2;
-			//Player selectedPlayer = (Player)players.IndexOf(selectedPlayer); not working for now ...
+            int selectedPlayer = Random.Range(0, 3);
+			Player selectedPlayer = (Player)players.IndexOf(selectedPlayer);
 			PerformSurpriseAtttack (wantedPlayer); //should be selectedPlayer !!!
 		} else if (attackOption.ToString () == AttackOptionEnum.AttackFatPlayers.ToString()) {
 			foreach (Player p in players) {
@@ -187,4 +198,5 @@ public class NinjaBear : MonoBehaviour {
 		player.playerHealth.TakeDamageFromBear ((int)ninjaStrenght);
 
 	}
+	*/
 }

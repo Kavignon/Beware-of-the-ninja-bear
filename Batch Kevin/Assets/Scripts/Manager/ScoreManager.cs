@@ -5,29 +5,46 @@ using System;
 public class ScoreManager : MonoBehaviour {
 
 
-	public GameObject[] players;
+	public Array players;
 	public float gameDurationTimer = 0;
-	public float timeLimit = 600; // This is the time limit
+	public float timeLimit = 10;// This is the time limit
 	public float findDoorTimeLimit=15;
-	public float findDoorTimer;
+	public float findDoorTimer=0;
 	public float findTheDoorBonus=375;
 	public int getThroughDoorBonus=250;
 	public bool foundDoor=false;
 	public bool getThroughDoor=false;
 	public int findDoorSpeed=2;
+	public NinjaBear ninjaBear;
+
+	bool canPerformFirstCallDone=true;	
+	bool canPerformSecondCallDone=false;
+	bool canPerformThirdCallDone=false;
+
+
 	// Use this for initialization
 	void Start () {
 		players = GameObject.FindGameObjectsWithTag ("Player");
+	
 	}
 	
 
 	
-	void Update(){
+	void FixedUpdate(){
 		gameDurationTimer += Time.deltaTime;
-		if (gameDurationTimer >= timeLimit)
+		if (gameDurationTimer <= timeLimit)
 		{
 			findDoorTimer+=Time.deltaTime;
-			DecreaseFindDoorBonus();
+
+
+		}
+		if (gameDurationTimer > timeLimit)
+		{
+			gameDurationTimer=timeLimit;
+			findDoorTimer+=Time.deltaTime;
+			if(findDoorTimer<=findDoorTimeLimit){
+				DecreaseFindDoorBonus();
+			}
 		}
 		AddEndGameBonus();
 	}
@@ -35,10 +52,10 @@ public class ScoreManager : MonoBehaviour {
 	void AddRemainingHealthToScore()
 	{
 
-			foreach(GameObject go in players)
-			{
-				go.GetComponent<Player>().currentScore+= go.GetComponent<Player>().playerHealth.currentHealth;
-			}
+		foreach(GameObject go in players)
+		{
+			go.GetComponent<Player>().currentScore+= go.GetComponent<Player>().playerHealth.currentHealth;
+		}
 
 	}
 	//We need better logic than this. 
@@ -66,19 +83,57 @@ public class ScoreManager : MonoBehaviour {
 
 	void AddEndGameBonus()
 	{
-		if (gameDurationTimer >= timeLimit) {
+		//if (gameDurationTimer >= timeLimit) {
 			AddRemainingHealthToScore ();
 			AddHasFoundDoorBonus ();
 			AddGetThroughDoorBonus ();
-		}
+		//}
 	
 		InvokeRepeating("DecreaseFindDoorBonus", 0.0f, 1.0f);
 	}
 
 	void DecreaseFindDoorBonus()
 	{
-		findTheDoorBonus -= 25;
+		findTheDoorBonus -= 1;
 	}
 
+	void GiveNinjaBonus()
+	{
+		Instantiate (ninjaBear, new Vector3 (10, 10, 1), Quaternion.identity);
+		foreach (Player p in players) 
+		{
+			if(p.currentScore >=5000)
+			{
+				if(canPerformFirstCallDone){
+					ninjaBear.PerformTestAttackOnPlayer();
+					ninjaBear.canBeSummoned=false;
+					canPerformFirstCallDone=false;
+					break;
+				}
+			}
+
+			if(p.currentScore >=12500)
+			{
+				if(canPerformSecondCallDone)
+				{
+					ninjaBear.canBeSummoned=true;
+					ninjaBear.PerformTestAttackOnPlayer();
+					ninjaBear.canBeSummoned=false;
+					break;
+				}
+			}
+			if(p.currentScore >=25000)
+			{
+				if(canPerformThirdCallDone)
+				{
+					ninjaBear.canBeSummoned=true;
+					ninjaBear.PerformTestAttackOnPlayer();
+					ninjaBear.canBeSummoned=false;
+					break;
+				}
+			}
+
+		}
+	}
 
 }

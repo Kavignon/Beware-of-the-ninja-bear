@@ -23,32 +23,12 @@ public class NewPlayerHealth : MonoBehaviour {
 	void FixedUpdate(){
 		//Thread.Sleep ((int)sanityDrainSpeed);
 		TakeDamage ();
-
-		if(DidConsumeFood()){
-			ConsumeFood();
-		}
-
 	}
 
 	
-	void ConsumeFood(){
-		/*
-		If user consume food, increase player's health
-		*/
-		ApplyFoodEffect();
-	}
+
 	
-	bool DidConsumeFood()
-	{
-		return false;
-	}
-	
-	void ApplyFoodEffect(){
-	}
-	
-	void OnGui(){
-		GUI.Box(new Rect(350, 10, Screen.width / 2 /(startingHealth / currentHealth), 25), sanity + currentHealth + "/" + startingHealth);
-	}
+
 
 	void Death(){
 		isDead = true;
@@ -78,7 +58,7 @@ public class NewPlayerHealth : MonoBehaviour {
 	{
 		currentHealth -= damage;
 		healthSlider.value = currentHealth;
-		ModifyHealthBarColor ();
+		//ModifyHealthBarColor ();
 		if(currentHealth <= 0 && !isDead)
 		{
 			Death ();

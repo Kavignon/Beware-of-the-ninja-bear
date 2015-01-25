@@ -18,11 +18,7 @@ public class Player : MonoBehaviour {
 
 
 	public Transform myTransform; //modifying the player's position 
-	public float barDisplay = 0; 
-	private Vector2 _healthBarPosition = new Vector2(20,40); 
-	private Vector2 _healthBarSize = new Vector2(60,20); 
-	private Texture2D progressBarEmpty;
-	private Texture2D progressBarFull;
+
 
 	// Use this for initialization
 	void Start () {
@@ -31,7 +27,6 @@ public class Player : MonoBehaviour {
 		z = 3;
 
 		myTransform = transform;
-
 		// Spawn point
 		myTransform.position = new Vector3 (x, y, z);
 		_playerCurrentSpeed = Random.Range (_playerMinSpeed, _playerMaxSpeed);
@@ -39,12 +34,9 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		barDisplay = Time.deltaTime * (float)0.05;
 	}
-	//Affect the player's speed after absorbing food
-	void AffectingSpeed(){
 
-	}
+
 
 
 
