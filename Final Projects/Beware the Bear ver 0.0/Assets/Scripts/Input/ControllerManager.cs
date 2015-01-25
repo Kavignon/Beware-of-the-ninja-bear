@@ -73,12 +73,9 @@ public class ControllerManager : MonoBehaviour
         Vector3 newPos = transform.position;
         float axisX = XCI.GetAxis(XboxAxis.LeftStickX, controllerNum);
         float axisY = XCI.GetAxis(XboxAxis.LeftStickY, controllerNum);
-        float axis = axisX > axisY ? axisX : axisY;
+        float axis = Mathf.Abs(axisX) > Mathf.Abs(axisY) ? axisX : axisY;
 
         anim.SetFloat("Speed", Mathf.Abs(axis));
-
-        Debug.Log(anim.GetFloat("Speed"));
-        Debug.Log("X " + axisX + " Y " + axisY);
 
         float newPosX = newPos.x + (axisX * moveSpeed * Time.deltaTime);
         float newPosZ = newPos.z + (axisY * moveSpeed * Time.deltaTime);
