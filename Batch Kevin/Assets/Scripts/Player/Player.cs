@@ -36,6 +36,20 @@ public class Player : MonoBehaviour {
 	void Update () {
 	}
 
+	void FixedUpdate()
+	{
+		//Impose a scope for the player's speed. 
+		//It will be checked at every second to make sure.
+
+		if (_playerCurrentSpeed > _playerMaxSpeed) {
+			_playerCurrentSpeed=_playerMaxSpeed;
+		}
+
+		if (_playerCurrentSpeed < _playerMinSpeed) {
+			_playerCurrentSpeed=_playerMinSpeed;
+		}
+	}
+
 
 
 
