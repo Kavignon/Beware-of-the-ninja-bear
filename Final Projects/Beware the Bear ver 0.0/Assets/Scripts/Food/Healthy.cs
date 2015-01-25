@@ -4,7 +4,7 @@ using System.Collections;
 public class Healthy : Food {
     
 	// Use this for initialization
-	void Awake () {
+	protected void Awake () {
         base.Awake();
 
         pointValue = 200;

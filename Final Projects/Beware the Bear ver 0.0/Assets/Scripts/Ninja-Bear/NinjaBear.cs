@@ -2,6 +2,81 @@
 using System.Collections;
 public class NinjaBear : MonoBehaviour
 {
+
+	public bool canBeSummoned=true;
+	Animator ninjaBearAnimation;
+	AudioSource ninjaBearAudio;
+	public AudioClip smokeClip;
+	public AudioClip damageClip;
+	GameObject player; 								// Reference to the player GameObject.
+	NewPlayerHealth playerHealth;                  // Reference to the player's health.
+	float timer;
+	float ninjaStrenght;
+	//AttackEnum randomAttack;
+	GameObject[] players;
+
+	public float gameDurationTimer = 0;
+	public float timeLimit = 10;// This is the time limit
+	
+	// Use this for initialization
+	void Start()
+	{
+		canBeSummoned = false;
+		ninjaStrenght = 35;
+		timer += Time.deltaTime;
+		players = GameObject.FindGameObjectsWithTag("Player");
+		
+	}
+	
+	public void PerformTestAttackOnPlayer()
+	{
+		int indexPlayer = Random.Range (0, players.Length);
+		players[indexPlayer].GetComponent<Player>().playerHealth.TakeDamageFromBear((int)ninjaStrenght);
+	}
+	
+	void PerformPatternAttack(Player p)
+	{
+		p.playerHealth.TakeDamageFromBear ((int)ninjaStrenght);
+	}
+	
+	void Awake()
+	{
+		// Setting up the references.
+		ninjaBearAnimation = GetComponent <Animator> ();
+		ninjaBearAudio = GetComponent <AudioSource> ();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (gameDurationTimer <= timeLimit)
+		{
+			gameDurationTimer+=Time.deltaTime;
+			
+			
+		}
+		if (gameDurationTimer >= 10) 
+		{
+			SummonNinjaBear();
+		}
+		
+	}
+	
+	public void SummonNinjaBear()
+	{
+		if (canBeSummoned) {
+			ninjaBearAnimation.SetTrigger ("ThrowSmokeBomb");
+			ninjaBearAudio.clip = smokeClip;
+			PerformTestAttackOnPlayer();
+		}
+	}
+	
+	AttackOptionEnum RandomiseAttackOption(){
+		System.Array values = System.Enum.GetValues(typeof(AttackOptionEnum));
+		System.Random random = new System.Random();
+		AttackOptionEnum randomAttack = (AttackOptionEnum)values.GetValue(random.Next(values.Length));
+		return randomAttack;
+	}
+	/*
     public int waitingPeriodForSummoning = 5000; // A user shall wait 5 seconds before the ninja bear can be summoned
 
     public bool canBeSummoned;
@@ -195,4 +270,5 @@ public class NinjaBear : MonoBehaviour
         //player.playerHealth.TakeDamageFromBear ((int)ninjaStrenght);
 
     }
+    */
 }
