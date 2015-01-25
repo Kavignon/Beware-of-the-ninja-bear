@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class FastFood : Food {
+
+	public FastFoodScoreEnum foodScore;
     
 	// Use this for initialization
 	void Awake () {
         base.Awake();
-
-        pointValue = 200;
+		AttributeScore ();
         speedModifier = .5f;
         speedModifierDuration = 10f;
         healthRestored = 15f;
@@ -23,4 +25,13 @@ public class FastFood : Food {
             Debug.Log("Healthy Pickup");
         }
     }
+
+	void AttributeScore()
+	{
+		Array values = Enum.GetValues(typeof(FastFoodScoreEnum));
+		System.Random healthyFood = new System.Random();
+		foodScore = (FastFoodScoreEnum)values.GetValue(healthyFood.Next(values.Length));
+		pointValue =(int) foodScore;	
+
+	}
 }

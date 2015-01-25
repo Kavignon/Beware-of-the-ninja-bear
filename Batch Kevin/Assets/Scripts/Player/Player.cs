@@ -13,6 +13,8 @@ public class Player : MonoBehaviour {
 	private int x,y,z;  // player's position in space
 
 	public int currentScore; // player's current score
+	public NewPlayerHealth playerHealth;
+
 
 
 	public Transform myTransform; //modifying the player's position 
@@ -44,19 +46,6 @@ public class Player : MonoBehaviour {
 
 	}
 
-	/*void OnGUI() {
-		
-		// draw the background:
-		GUI.BeginGroup (new Rect (_healthBarPosition.x, _healthBarPosition.y, _healthBarSize.x, _healthBarSize.y));
-		GUI.Box (new Rect (0, 0, _healthBarSize.x, _healthBarSize.y), progressBarEmpty);
-
-		// draw the filled-in part:
-		GUI.BeginGroup (new Rect (0, 0, _healthBarSize.x * barDisplay, _healthBarSize.y));
-		GUI.Box (new Rect (0, 0, _healthBarSize.x, _healthBarSize.y), progressBarFull);
-		GUI.EndGroup ();
-
-		GUI.EndGroup ();
-	}*/
 
 
 }

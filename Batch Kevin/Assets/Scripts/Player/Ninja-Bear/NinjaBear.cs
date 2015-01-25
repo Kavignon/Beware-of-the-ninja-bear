@@ -27,11 +27,24 @@ public class NinjaBear : MonoBehaviour {
 		ninjaStrenght = 35;
 		timer += Time.deltaTime;
 		bearLocation = transform;
-		player = new GameObject ();
+		//player = new GameObject ();
+		//ThrowSmokeBomb ();
+
+		///Test
+	
+		player = GameObject.FindGameObjectWithTag ("Player");
+		PerformTestAttackOnPlayer ();
 
 	}
 
-	void Awake()
+	void PerformTestAttackOnPlayer()
+	{
+		//player.playerHealth.TakeDamageFromBear ((int)ninjaStrenght);
+		player.GetComponent<Player> ().playerHealth.TakeDamageFromBear ((int)ninjaStrenght);
+	}
+
+
+	/*void Awake()
 	{
 		// Setting up the references.
 		ninjaBearAnimation = GetComponent <Animator> ();
@@ -47,8 +60,10 @@ public class NinjaBear : MonoBehaviour {
 			GameObject.FindGameObjectWithTag ("Player4")
 		};
 		playerHealth = player.GetComponent <NewPlayerHealth> ();
+
+		RandomSurpriseAttack ();
 	}
-	
+	*/
 	// Update is called once per frame
 	void Update () {
 
@@ -56,6 +71,7 @@ public class NinjaBear : MonoBehaviour {
 		{
 			canBeSummoned = true;
 			timer = Time.time + waitingPeriodForSummoning;
+
 		}
 	}
 	//Activate the animation of throwing a smoke bomb

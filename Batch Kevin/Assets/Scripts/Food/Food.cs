@@ -2,7 +2,7 @@
 #define DEBUG
 using UnityEngine;
 using System.Collections;
-using XboxCtrlrInput;
+//using XboxCtrlrInput;
 
 public class Food : MonoBehaviour
 {
@@ -54,7 +54,7 @@ public class Food : MonoBehaviour
             Debug.Log("yip yip");
 #endif
 
-            playerNumber = col.gameObject.GetComponent<ControllerManager>().controllerNum;
+           // playerNumber = col.gameObject.GetComponent<ControllerManager>().controllerNum;
             canPickup = true;
             
         }
@@ -64,10 +64,10 @@ public class Food : MonoBehaviour
     {
         if (canPickup)
         {
-            if (XCI.GetButtonDown(XboxButton.X, playerNumber))
+            /*if (XCI.GetButtonDown(XboxButton.X, playerNumber))
             {
                 Destroy(gameObject);
-            }
+            }*/
         }
     }
 }
