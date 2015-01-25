@@ -25,7 +25,7 @@
     <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,7 +33,7 @@
     <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+    <DefineConstants>TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -66,28 +66,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\IntegrationDemo\Scripts\AkLogger.cs" />
-    <Compile Include="Assets\IntegrationDemo\Scripts\Control.cs" />
-    <Compile Include="Assets\IntegrationDemo\Scripts\DynamicDialogueDemo.cs" />
-    <Compile Include="Assets\IntegrationDemo\Scripts\InteractiveMusicDemo.cs" />
-    <Compile Include="Assets\IntegrationDemo\Scripts\InteractiveMusicSwitch.cs" />
-    <Compile Include="Assets\IntegrationDemo\Scripts\LocalizationDemo.cs" />
-    <Compile Include="Assets\IntegrationDemo\Scripts\LocalizationLanguage.cs" />
-    <Compile Include="Assets\IntegrationDemo\Scripts\MusicCallbackDemo.cs" />
-    <Compile Include="Assets\IntegrationDemo\Scripts\PositioningDemo.cs" />
-    <Compile Include="Assets\IntegrationDemo\Scripts\PositioningDemo_Play.cs" />
-    <Compile Include="Assets\IntegrationDemo\Scripts\PositioningDemo_ShowListenerPosition.cs" />
-    <Compile Include="Assets\IntegrationDemo\Scripts\RTPCDemo.cs" />
-    <Compile Include="Assets\IntegrationDemo\Scripts\SubtitleMarkerDemo.cs" />
     <Compile Include="Assets\Scripts\Food\FastFood.cs" />
+    <Compile Include="Assets\Scripts\Food\FastFoodScoreEnum.cs" />
     <Compile Include="Assets\Scripts\Food\Food.cs" />
     <Compile Include="Assets\Scripts\Food\Healthy.cs" />
     <Compile Include="Assets\Scripts\Input\ControllerManager.cs" />
     <Compile Include="Assets\Scripts\Input\XboxCtrlrInput.cs" />
+    <Compile Include="Assets\Scripts\Manager\EndGameManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\FoodManager.cs" />
     <Compile Include="Assets\Scripts\Ninja-Bear\AttackEnum.cs" />
     <Compile Include="Assets\Scripts\Ninja-Bear\AttackOptionEnum.cs" />
     <Compile Include="Assets\Scripts\Ninja-Bear\NinjaBear.cs" />
     <Compile Include="Assets\Scripts\Player\HealthManager.cs" />
+    <Compile Include="Assets\Scripts\Player\NewPlayerHealth.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerSneakAttack.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerSpawn.cs" />
@@ -95,12 +86,16 @@
     <Compile Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Wwise_IDs.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AKRESULT.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkActionOnEventType.cs" />
-    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkArrayAllocatorAlignedSimd.cs" />
-    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkArrayAllocatorDefault.cs" />
+    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkAudioAPI.cs" />
+    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkAudioFormat.cs" />
+    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkAudioOutputType.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkAuxSendValue.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkBankContent.cs" />
+    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkBusType.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkCallbackSerializer.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkCallbackType.cs" />
+    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkChannelConfig.cs" />
+    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkChannelConfigType.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkChannelOrdering.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkCurveInterpolation.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkDeviceSettings.cs" />
@@ -109,6 +104,7 @@
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkInitSettings.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkListenerPosition.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMemSettings.cs" />
+    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMeteringFlags.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMusicPlaylistCallbackInfo.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMusicSettings.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkNodeType.cs" />
@@ -119,13 +115,12 @@
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPlaylistArray.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPositionSourceType.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPositioningInfo.cs" />
+    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkRamp.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkSegmentInfo.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkSoundPosition.cs" />
+    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkSourceSettings.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkStreamMgrSettings.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkVector.cs" />
-    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkVolumeOffset.cs" />
-    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\ArrayPoolDefault.cs" />
-    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\ArrayPoolLEngineDefault.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\DynamicSequenceType.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\EnvelopePoint.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\ErrorCode.cs" />
@@ -138,31 +133,49 @@
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\RTPCValue_type.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\WwiseObjectID.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\WwiseObjectIDext.cs" />
+    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\_ArrayPoolDefault.cs" />
+    <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\_ArrayPoolLEngineDefault.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkMemPoolAttributes_Windows.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkPlatformInitSettings_Windows.cs" />
-    <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkSinkType_Windows.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkSoundEnginePINVOKE_Windows.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkSoundEngine_Windows.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkSoundQuality_Windows.cs" />
-    <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkSpeakerVolumes_Windows.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkThreadProperties_Windows.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkAuxSendArray.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkCallbackManager.cs" />
     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkPositionArray.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkAuxSend.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkAuxSendAware.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkBankLoad.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkBankLoadTrigger.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkBankPath.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkBoxEnvironment.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkEventTrigger.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkGameObject.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkGameObjectTracker.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkGlobalSoundEngineInitializer.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkGlobalSoundEngineTerminator.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkInMemBankLoader.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkListener.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Examples\AkSwitchTrigger.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkAmbient.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkAudioListener.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkBank.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkBankManager.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkBankPathUtil.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkDragDropHelper.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkEnvironment.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkEnvironmentPortal.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkEvent.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkEventCallbackData.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkGameObj.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkGameObjEnvironmentData.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkGameObjPosOffsetData.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkGameObjPositionData.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkInitializer.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkMemBankLoader.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkState.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkSwitch.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkTerminator.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerBase.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerCollisionEnter.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerCollisionExit.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerDisable.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerEnable.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerEnter.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerExit.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerMouseDown.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerMouseEnter.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerMouseExit.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerMouseUp.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkUnityEventHandler.cs" />
+    <Compile Include="Assets\Wwise\Deployment\Components\AkUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\Outline\outline.shader" />
@@ -206,12 +219,8 @@
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\TestRSX.txt" />
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Wood.txt" />
     <None Include="Assets\StreamingAssets\desc.txt" />
-    <None Include="Assets\Wwise\AkSoundEngine\Common\readme.txt" />
     <None Include="Assets\Wwise\Readme.txt" />
-    <None Include="Assets\Wwise\SWIG\Doc\Devel\migrate.txt" />
-    <None Include="Assets\Wwise\SWIG\Doc\Devel\runtime.txt" />
-    <None Include="Assets\Wwise\SWIG\vms\aaareadme.txt" />
-    <None Include="Assets\Wwise\SWIG\Win\README.txt" />
+    <None Include="Assets\Wwise\Version.txt" />
     <None Include="Assets\WwiseSettings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />

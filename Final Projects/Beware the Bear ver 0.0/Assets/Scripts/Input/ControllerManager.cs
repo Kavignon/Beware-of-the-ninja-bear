@@ -6,7 +6,7 @@ public class ControllerManager : MonoBehaviour
 {
     public enum PlayerNumber { player_1, player_2, player_3, player_4 };
 
-    public float moveSpeed = 2f;
+    public float moveSpeed = 20f;
     public float moveSpeedModifier;
     public float moveSpeedModifierDuration;
     public PlayerNumber playerNum;
@@ -18,11 +18,12 @@ public class ControllerManager : MonoBehaviour
     public float rightMotor;
     public float vibrationItensity;
 
-    private bool canJump;
+    public bool canEat;
     private bool canVibrate;
 
-    private Animator anim;
+    public Animator anim;
     private Vector3 moveDir;
+    float eating;
 
     // Use this for initialization
     void Awake()
@@ -34,6 +35,8 @@ public class ControllerManager : MonoBehaviour
         rightMotor = 0f;
         gameObject.tag = "Player";
         moveDir = Vector3.zero;
+        canEat = false;
+
         switch (playerNum)
         {
             case PlayerNumber.player_1:
@@ -58,16 +61,7 @@ public class ControllerManager : MonoBehaviour
     void FixedUpdate()
     {
         LeftAxisManager();
-        JumpManager();
         VibrationManager();
-    }
-
-    void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.CompareTag("Ground"))
-        {
-            canJump = true;
-        }
     }
 
     void LeftAxisManager()
@@ -81,18 +75,12 @@ public class ControllerManager : MonoBehaviour
 
         float newPosX = newPos.x + (axisX * moveSpeed * Time.deltaTime);
         float newPosZ = newPos.z + (axisY * moveSpeed * Time.deltaTime);
-        Quaternion rot = Quaternion.Euler(0, 0, 0);
+        
         newPos = new Vector3(newPosX, transform.position.y, newPosZ);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Atan2(axisX, axisY) * Mathf.Rad2Deg, transform.eulerAngles.z);
         transform.position = newPos;
-        transform.Rotate(0, XCI.GetAxis(XboxAxis.LeftStickX, controllerNum) * 60 * Time.deltaTime, 0);
-        transform.Translate(0, 0, XCI.GetAxis(XboxAxis.LeftStickY, controllerNum) * 60 * Time.deltaTime);
     }
-
-    void MoveManager()
-    {
-        moveDir = new Vector3(XCI.GetAxis(XboxAxis.LeftStickX, controllerNum), 0, XCI.GetAxis(XboxAxis.LeftStickY, controllerNum));
-        // moveDir = tra
-    }
+    
 
     void VibrationManager()
     {
@@ -109,13 +97,16 @@ public class ControllerManager : MonoBehaviour
         XCI.SetVibration(controllerNum, leftMotor, rightMotor);
     }
 
-    void JumpManager()
+    void EatManager()
     {
-        if (XCI.GetButtonDown(XboxButton.A, controllerNum) && canJump)
+        if (XCI.GetButtonDown(XboxButton.A, controllerNum) && canEat)
         {
+            anim.SetFloat("Eating", 1);
             XCI.SetVibration(controllerNum, 0, 0);
             canVibrate = true;
             rigidbody.AddForce(0f, 7.5f, 0f, ForceMode.Impulse);
+
+
         }
     }
 }

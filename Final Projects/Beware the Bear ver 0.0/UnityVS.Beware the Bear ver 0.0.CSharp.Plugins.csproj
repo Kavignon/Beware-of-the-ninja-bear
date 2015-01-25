@@ -101,12 +101,8 @@
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\TestRSX.txt" />
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Wood.txt" />
     <None Include="Assets\StreamingAssets\desc.txt" />
-    <None Include="Assets\Wwise\AkSoundEngine\Common\readme.txt" />
     <None Include="Assets\Wwise\Readme.txt" />
-    <None Include="Assets\Wwise\SWIG\Doc\Devel\migrate.txt" />
-    <None Include="Assets\Wwise\SWIG\Doc\Devel\runtime.txt" />
-    <None Include="Assets\Wwise\SWIG\vms\aaareadme.txt" />
-    <None Include="Assets\Wwise\SWIG\Win\README.txt" />
+    <None Include="Assets\Wwise\Version.txt" />
     <None Include="Assets\WwiseSettings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />

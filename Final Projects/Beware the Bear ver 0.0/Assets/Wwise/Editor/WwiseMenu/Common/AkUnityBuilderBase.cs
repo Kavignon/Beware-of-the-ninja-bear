@@ -29,6 +29,12 @@ public class AkUnityIntegrationBuilderBase
 
 	public void BuildByConfig(string config, string arch)
 	{
+		if (EditorApplication.isPlaying)
+		{
+			UnityEngine.Debug.LogWarning("Wwise: Editor is in play mode. Stop playing any scenes and retry. Aborted.");
+		    return;
+		}
+
 		// Try to parse config to get Wwise location.
 		string configPath = Path.Combine(m_buildScriptDir, "BuildWwiseUnityIntegration.json");
 		FileInfo fi = new FileInfo(configPath);
@@ -100,12 +106,12 @@ public class AkUnityIntegrationBuilderBase
 
 					EditorUtility.ClearProgressBar();
 				}
-				catch (InvalidOperationException ioex)
+				catch (Exception ex)
 				{
 					AssetDatabase.Refresh();
 
+					UnityEngine.Debug.LogError(string.Format ("Wwise: Build process failed with exception: {}. Check detailed logs under the Logs folder.", ex));
 					EditorUtility.ClearProgressBar();
-					UnityEngine.Debug.LogError(string.Format ("Wwise: Build process is hanging with exception: {}. Check detailed logs under the Logs folder.", ioex));
 				}
 			}
 		}

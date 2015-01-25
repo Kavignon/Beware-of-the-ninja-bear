@@ -1,6 +1,4 @@
-﻿////Uncomment to activate Debug logs;
-//#define DEBUG
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using XboxCtrlrInput;
 
@@ -13,13 +11,9 @@ public class Food : MonoBehaviour
 
     private GameObject player;
 
-#if (DEBUG)
     public int playerNumber;
     public bool canPickup;
-#else
-    private int playerNumber;
-    private bool canPickup;
-#endif
+
 
 
     // Use this for initialization
@@ -40,11 +34,9 @@ public class Food : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-#if (DEBUG)
-            Debug.Log("Wut?");
-#endif
-            canPickup = false;
+            player.GetComponent<ControllerManager>().canEat = false;
             playerNumber = 0;
+            player.GetComponent<ControllerManager>().anim.SetFloat("Eating", 0);
         }
     }
 
@@ -52,23 +44,21 @@ public class Food : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-#if (DEBUG)
-            Debug.Log("yip yip");
-#endif
             player = col.gameObject;
             playerNumber = player.GetComponent<ControllerManager>().controllerNum;
-            
+            player.GetComponent<ControllerManager>().canEat = true;
             canPickup = true;
-            
+
         }
     }
-    
+
     void PickupManager()
     {
         if (canPickup)
         {
-            if (XCI.GetButtonDown(XboxButton.X, playerNumber))
+            if (XCI.GetButtonDown(XboxButton.A, playerNumber))
             {
+                player.GetComponent<ControllerManager>().anim.SetFloat("Eating", 1);
                 player.GetComponent<HealthManager>().currentHealth += healthRestored;
                 Destroy(gameObject);
             }

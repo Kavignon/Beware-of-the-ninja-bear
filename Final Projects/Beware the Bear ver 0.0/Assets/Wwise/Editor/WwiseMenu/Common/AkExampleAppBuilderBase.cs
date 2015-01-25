@@ -11,81 +11,137 @@ using System.Diagnostics;
 using System.IO;
 using System.Collections.Generic;
 
-public abstract class AkExampleAppBuilderBase
-{
-	protected string m_AppBaseName = "AkUnityGame";	
-	protected BuildTarget m_buildTarget = BuildTarget.StandaloneWindows;
-	protected string m_platform = "Undefined";
-	protected string m_appExtension = "Undefined";
-	protected string m_appDir = "Undefined";
-	protected string m_pluginDir = Path.Combine(Application.dataPath, "Plugins");
-	protected string m_srcPlugin = "Undefined";
-	protected string m_destPlugin = "Undefined";
-	protected string m_srcPath = "Undefined";
-	
-	public virtual bool Prebuild()
-	{
-		string srcPath = m_srcPath;
-		FileInfo src = new FileInfo(srcPath);
+/// @brief This is an exemple that shows the steps to create a custom build for Unity applications that use Wwise.
+/// The build can be started by selecting a target platform and adding scenes to the build in the build settings (File->Build Settings) 
+/// and by clicking on "File->Build Unity-Wwise project" on the menu bar.
+/// The steps to build a Unity-Wwise project are as follow:
+/// 1) 	Copy the soundbank of the current target platform from the Wwise project to the specified folder in the unity project. 
+/// 2) 	Build all the scenes defined in unity's build settings.
+/// 3) 	Delete the soundbank folder from the Unity project. This step is needed to prevent future builds for other platforms from using that bank.
 
-		// If there is a backup for current architecture, we use it.
-		if (src.Exists)
+public class AkExampleAppBuilderBase : MonoBehaviour
+{
+	//[MenuItem("File/Build Unity-Wwise Project")] 
+	public static bool Build()
+	{
+		//Choose app name and location
+		string appPath = EditorUtility.SaveFilePanel (	"Build Unity-Wwise project", 										//window title
+		                                              	Application.dataPath.Remove(Application.dataPath.LastIndexOf('/')), //Default app location (unity project root directory)
+		                                              	"Unity_Wwise_app", 													//Default app name
+		                                              	getPlatFormExtension()												//app extension (depends on target platform)
+		                                             );
+		//check if the build was cancelled
+		bool isUserCancelledBuild = appPath == "";
+		if (isUserCancelledBuild)
 		{
-			string destPath = Path.Combine(m_pluginDir, m_destPlugin);
-			AkUnityAssetsInstaller.OverwriteFile(srcPath, destPath);
-		}
-		else
-		{
-			AkBankPath.ConvertToPosixPath(ref srcPath);
-			UnityEngine.Debug.LogError(string.Format("Wwise: Plugin for {0} not found at: {1}. Install via menu first.", m_platform, srcPath));
+			UnityEngine.Debug.Log("Wwise: User cancelled the build.");
 			return false;
 		}
 
+		//get Wwise project file (.wproj) path
+		string wwiseProjFile = Path.Combine (Application.dataPath, WwiseSetupWizard.Settings.WwiseProjectPath).Replace('/', '\\');
+
+		//get Wwise project root folder path
+		string wwiseProjectFolder = wwiseProjFile.Remove (wwiseProjFile.LastIndexOf(Path.DirectorySeparatorChar));
+
+		//get Wwise platform string (the string isn't the same as unity for some platforms)
+		string wwisePlatformString = UnityToWwisePlatformString (EditorUserBuildSettings.activeBuildTarget.ToString());
+
+		//get soundbank location in the Wwise project for the current platform target
+		string sourceSoundBankFolder = Path.Combine( wwiseProjectFolder, AkUtilities.GetWwiseSoundBankDestinationFolder (wwisePlatformString, wwiseProjFile));
+
+		//get soundbank destination in the Unity project for the current platform target
+		string destinationSoundBankFolder = Path.Combine	(	Application.dataPath + "\\StreamingAssets", 								//Soundbank must be inside the StreamingAssets folder
+		                                                  		Path.Combine(WwiseSetupWizard.Settings.SoundbankPath, wwisePlatformString)	
+		                                                  	);
+
+		//Copy the soundbank from the Wwise project to the unity project (Inside the StreamingAssets folder as defined in Window->Wwise Settings)
+		if(	!AkUtilities.DirectoryCopy 	(	sourceSoundBankFolder, 		//source folder
+		                          			destinationSoundBankFolder, //destination
+		                          			true						//copy subfolders
+										)
+		   )
+		{
+			UnityEngine.Debug.LogError("Wwise: The soundbank folder for the " + wwisePlatformString + " platform doesn't exist. Make sure it was generated in your Wwise project");
+			return false;
+		}
+
+		//Get all the scenes to build as defined in File->Build Settings
+		string[] scenes = new string[EditorBuildSettings.scenes.Length]; 		
+		for (int i = 0; i < EditorBuildSettings.scenes.Length; i++)  
+		{
+			scenes[i] = EditorBuildSettings.scenes[i].path; 
+		}
+
+		//Build the app
+		BuildPipeline.BuildPlayer	(	scenes,										//scenes to build 
+		                           		appPath, 									//Location of the app to create
+		                           		EditorUserBuildSettings.activeBuildTarget,	//Platform for which to build the app 
+		                           		BuildOptions.None
+		                           	);
+		
+		//Delete the soundbank from the unity project so they dont get copied in the game folder of fututre builds
+		Directory.Delete (destinationSoundBankFolder, true); 
+		
 		return true;
 	}
 
-	public bool Build()
+
+	private static string UnityToWwisePlatformString( string unityPlatormString)
 	{
-		// Get filename.
-        m_appDir = EditorUtility.SaveFolderPanel("Select Root Folder for Application Build", ".", "");
+		if(	unityPlatormString == BuildTarget.StandaloneWindows.ToString()
+		   	||
+		   	unityPlatormString == BuildTarget.StandaloneWindows64.ToString()
+		   )
+			return "Windows";
 
-        bool isUserCancelledBuild = m_appDir == "";
-        if (isUserCancelledBuild)
-        {
-        	UnityEngine.Debug.Log("Wwise: User cancelled the build.");
-        	return false;
-        }
-		
-		// Get filename.
-		const string SceneExt = "unity";
-        string scenePath = EditorUtility.OpenFilePanel("Select Single Scene to Build", Application.dataPath, SceneExt);
+		else if(	unityPlatormString == BuildTarget.StandaloneOSXIntel.ToString() 
+		        	|| 
+		        	unityPlatormString == BuildTarget.StandaloneOSXIntel64.ToString()
+		        	||
+		        	unityPlatormString == BuildTarget.StandaloneOSXUniversal.ToString()
+		        )
+			return "Mac";
 
-        isUserCancelledBuild = scenePath == "";
-        if (isUserCancelledBuild)
-        {
-        	UnityEngine.Debug.Log("Wwise: User cancelled the build.");
-        	return false;
-        }
-        string[] scenesToBuild = new string[] {scenePath};
+		else if(unityPlatormString == BuildTarget.iPhone.ToString())
+			return "iOS";
 
-        if ( ! Prebuild() )
-        	return false;
+		else if(unityPlatormString == BuildTarget.XBOX360.ToString())
+			return "Xbox360";
 
-        // Build player.
-		string AppFullPath = GetPlatformAppLocationPath(m_appDir);
-		UnityEngine.Debug.Log("Wwise: BuildTarget Application location: "+AppFullPath);
-		
-        BuildPipeline.BuildPlayer(scenesToBuild, AppFullPath, m_buildTarget, BuildOptions.None);
-
-        return true;
-
+		//Android, PS3 and Wii have the correct strings in Wwise v2013.2.7 and Unity version 4.3.4
+		return unityPlatormString;
 	}
-	
-	protected virtual string GetPlatformAppLocationPath(string AppDir)
+
+	private static string getPlatFormExtension()
 	{
-		string path = Path.Combine(AppDir, m_AppBaseName+m_appExtension);
-		AkBankPath.ConvertToPosixPath(ref path);
-		return path;
+		string unityPlatormString = EditorUserBuildSettings.activeBuildTarget.ToString ();
+
+		if(	unityPlatormString == BuildTarget.StandaloneWindows.ToString()
+		   	||
+		   	unityPlatormString == BuildTarget.StandaloneWindows64.ToString()
+		   )
+			return "exe";
+		
+		else if(	unityPlatormString == BuildTarget.StandaloneOSXIntel.ToString() 
+		        	|| 
+		        	unityPlatormString == BuildTarget.StandaloneOSXIntel64.ToString()
+		        	||
+		        	unityPlatormString == BuildTarget.StandaloneOSXUniversal.ToString()
+		        )
+			return "app";
+		
+		else if(unityPlatormString == BuildTarget.iPhone.ToString())
+			return "ipa";
+		
+		else if(unityPlatormString == BuildTarget.XBOX360.ToString())
+			return "XEX";
+		else if(unityPlatormString == BuildTarget.Android.ToString())
+			return "apk";
+		else if(unityPlatormString == BuildTarget.PS3.ToString())
+			return "self";		
+
+		return "";
 	}
 	
 }
