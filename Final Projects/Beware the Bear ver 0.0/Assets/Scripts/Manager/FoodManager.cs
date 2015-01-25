@@ -32,8 +32,9 @@ public class FoodManager : MonoBehaviour {
 			DeleteAndReload()
 		}
 		int spawnPointIndex = Random.Range (0, spawnFoodPoints.Length);
+
 		//Create an instance of the food prefab at the randomly selected spawn point's position and rotation.
-		Instantiate (food, spawnFoodPoints[spawnPointIndex].position, spawnFoodPoints[spawnPointIndex].rotation);
+		Instantiate (food, new Vector3(Random.Range(-1,1),0.1,Random.Range(0,3)), spawnFoodPoints[spawnPointIndex].rotation);
 		foodCount += 1;
 	}
 
