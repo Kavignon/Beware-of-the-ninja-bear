@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" SchemaVersion="62">
+	<Busses>
+		<WorkUnit Name="Default Work Unit" ID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" PersistMode="Standalone">
+			<ChildrenList>
+				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" />
+				<Bus Name="Master Secondary Bus" ID="{D2E0BC7E-7B3F-4FFE-A670-FAE02761B631}">
+					<ChildrenList>
+						<Bus Name="Bear_Activated" ID="{1868CDBA-00C6-4DA2-839F-692006D0E2F5}">
+							<PropertyList>
+								<Property Name="RecoveryTime" Type="Real64" Value="0.5" />
+							</PropertyList>
+							<DuckingList>
+								<DuckItem>
+									<BusRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" />
+									<DuckingParam>
+										<Volume>-8</Volume>
+										<FadeInTime>0.5</FadeInTime>
+										<FadeOutTime>0.5</FadeOutTime>
+										<FadeCurve>FadeLog1</FadeCurve>
+									</DuckingParam>
+								</DuckItem>
+							</DuckingList>
+						</Bus>
+					</ChildrenList>
+				</Bus>
+				<MotionBus Name="Master Motion Bus" ID="{20A630BA-3398-4676-B927-1004DFE41FD8}" />
+			</ChildrenList>
+		</WorkUnit>
+	</Busses>
+</WwiseDocument>

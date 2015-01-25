@@ -22,6 +22,7 @@ public class ControllerManager : MonoBehaviour
     private bool canVibrate;
 
     private Animator anim;
+    private Vector3 moveDir;
 
     // Use this for initialization
     void Awake()
@@ -32,6 +33,7 @@ public class ControllerManager : MonoBehaviour
         leftMotor = 0f;
         rightMotor = 0f;
         gameObject.tag = "Player";
+        moveDir = Vector3.zero;
         switch (playerNum)
         {
             case PlayerNumber.player_1:
@@ -79,9 +81,17 @@ public class ControllerManager : MonoBehaviour
 
         float newPosX = newPos.x + (axisX * moveSpeed * Time.deltaTime);
         float newPosZ = newPos.z + (axisY * moveSpeed * Time.deltaTime);
-
+        Quaternion rot = Quaternion.Euler(0, 0, 0);
         newPos = new Vector3(newPosX, transform.position.y, newPosZ);
         transform.position = newPos;
+        transform.Rotate(0, XCI.GetAxis(XboxAxis.LeftStickX, controllerNum) * 60 * Time.deltaTime, 0);
+        transform.Translate(0, 0, XCI.GetAxis(XboxAxis.LeftStickY, controllerNum) * 60 * Time.deltaTime);
+    }
+
+    void MoveManager()
+    {
+        moveDir = new Vector3(XCI.GetAxis(XboxAxis.LeftStickX, controllerNum), 0, XCI.GetAxis(XboxAxis.LeftStickY, controllerNum));
+        // moveDir = tra
     }
 
     void VibrationManager()

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{875F4B44-9670-4B10-8166-801E7379C6A4}" SchemaVersion="62">
+	<Events>
+		<WorkUnit Name="Ninja_Bear" ID="{875F4B44-9670-4B10-8166-801E7379C6A4}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Start_Game" ID="{61CE2378-EAEE-4C02-BEE4-06C559E05D1D}">
+					<ChildrenList>
+						<Action Name="Play" ID="{1614C4FC-3DC0-419A-B3E6-22B9394C2495}" ShortID="966790103" Type="Play" Scope="One" Global="false">
+							<PropertyList>
+								<Property Name="FadeCurve" Type="int16" Value="2" />
+								<Property Name="FadeTime" Type="Real64" Value="0.2" />
+							</PropertyList>
+							<ElementList>
+								<Element ID="{3E02110A-84F9-4B02-B5E0-87A23C392F0B}" Global="false">
+									<ObjectRef Name="Top_Down" ID="{CEE5D457-8075-4573-931D-2DB22B197B45}" WorkUnitID="{12691689-B0E1-4521-89CC-7BA7D9B8C0B4}" />
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Set State" ID="{C2EBA6BC-7EE8-49BD-AA17-0379275888ED}" ShortID="286378652" Type="SetState" Scope="All" Global="true">
+							<SetItemParam>
+								<Group Name="Stage" ID="{E705FDD2-3342-4D7E-93C0-646B7218630B}" />
+								<GroupItem Name="Running" ID="{DC2A4738-3023-4EBB-900B-EE4B685CE648}" />
+							</SetItemParam>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Bear_Activate" ID="{81627953-A7C4-4EFA-8F4F-91FFD10B0D1C}">
+					<ChildrenList>
+						<Action Name="Trigger" ID="{C7D81CD5-EE66-46C0-BD58-0EFB31AE997B}" ShortID="278029743" Type="Trigger" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{95E2CF2F-9E8D-4530-A6EB-61E61C8524D9}" Global="false">
+									<ObjectRef Name="Bear_Activated" ID="{094B3EE1-D3A6-40CA-8E8F-94D06EA0BD39}" WorkUnitID="{654A24F9-AC51-47FB-9063-29E43137D2D1}" />
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Set State" ID="{1F80686B-7808-4213-AFC1-E886E6E9C71A}" ShortID="688979449" Type="SetState" Scope="All" Global="true">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="4" />
+							</PropertyList>
+							<SetItemParam>
+								<Group Name="Stage" ID="{E705FDD2-3342-4D7E-93C0-646B7218630B}" />
+								<GroupItem Name="Bear_Combat" ID="{496EE943-3EA2-473A-809B-279851D2F5DA}" />
+							</SetItemParam>
+						</Action>
+						<Action Name="Mute" ID="{B1D3CAD0-220D-4E00-88BD-1FD85DE650AA}" ShortID="1046327944" Type="Mute" Scope="One" Global="false">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="4.5" />
+								<Property Name="FadeCurve" Type="int16" Value="2" />
+								<Property Name="FadeTime" Type="Real64" Value="0.5" />
+							</PropertyList>
+							<ElementList>
+								<Element ID="{045778B5-4CB2-4A9D-A859-5FAA40AF8949}" Global="false">
+									<ObjectRef Name="Top_Down" ID="{CEE5D457-8075-4573-931D-2DB22B197B45}" WorkUnitID="{12691689-B0E1-4521-89CC-7BA7D9B8C0B4}" />
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{FE8F0D3A-58F7-4D3C-B48C-890098A5DBC1}" ShortID="40341477" Type="Play" Scope="One" Global="false">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="4" />
+							</PropertyList>
+							<ElementList>
+								<Element ID="{034F0D97-B133-43BC-BDEB-DDAA9B0DD386}" Global="false">
+									<ObjectRef Name="Bear_Encounter" ID="{70814D67-8AC1-48A3-9E63-203815057DB3}" WorkUnitID="{12691689-B0E1-4521-89CC-7BA7D9B8C0B4}" />
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="UnMute" ID="{09553405-D86A-492C-B904-C5B1544C7254}" ShortID="122892801" Type="UnMute" Scope="One" Global="false">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="11" />
+								<Property Name="FadeCurve" Type="int16" Value="2" />
+								<Property Name="FadeTime" Type="Real64" Value="0.5" />
+							</PropertyList>
+							<ElementList>
+								<Element ID="{F63D4769-2643-42EC-BD6C-C4B424B5D3D6}" Global="false">
+									<ObjectRef Name="Top_Down" ID="{CEE5D457-8075-4573-931D-2DB22B197B45}" WorkUnitID="{12691689-B0E1-4521-89CC-7BA7D9B8C0B4}" />
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Victory" ID="{17A28A5D-F127-440F-8076-421EC1F38852}">
+					<ChildrenList>
+						<Action Name="Stop All Except" ID="{3054DBE3-51F1-4470-ACED-6A4B8EC177C7}" ShortID="102058281" Type="Stop" Scope="AllExcept" Global="false">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="0.5" />
+								<Property Name="FadeCurve" Type="int16" Value="2" />
+								<Property Name="FadeTime" Type="Real64" Value="0.5" />
+							</PropertyList>
+							<ElementList>
+								<Element ID="{CF1C8FAC-7FE6-4CF2-AA4C-5B23DF926688}" Global="false">
+									<ObjectRef Name="Victory" ID="{96369844-F0B2-46B3-B79C-4235039DDC20}" WorkUnitID="{12691689-B0E1-4521-89CC-7BA7D9B8C0B4}" />
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Set State" ID="{CE767A15-202C-4DBC-9381-BF0A000ED9E5}" ShortID="930643696" Type="SetState" Scope="All" Global="true">
+							<SetItemParam>
+								<Group Name="Stage" ID="{E705FDD2-3342-4D7E-93C0-646B7218630B}" />
+								<GroupItem Name="Victory" ID="{CEAF0FB7-DDCC-4D21-B359-DEAE284DFF43}" />
+							</SetItemParam>
+						</Action>
+						<Action Name="Play" ID="{E8FB4678-DDF3-48E9-8CD9-A8EBC9253626}" ShortID="888490307" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{36F7B5A3-5FEF-4910-9AEC-9C0B95C10241}" Global="false">
+									<ObjectRef Name="Victory" ID="{96369844-F0B2-46B3-B79C-4235039DDC20}" WorkUnitID="{12691689-B0E1-4521-89CC-7BA7D9B8C0B4}" />
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Score" ID="{8EB50650-6B02-443F-A5C4-DDFEF1ACCB01}">
+					<ChildrenList>
+						<Action Name="Play" ID="{A4CD3810-D309-450B-8904-CA26F3839B1E}" ShortID="851573824" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{551AF5EF-2398-4842-808A-E6F0BDB730E2}" Global="false">
+									<ObjectRef Name="Eat_Score" ID="{DB1450D9-59BC-44E7-8E8D-B0CFE56974B7}" WorkUnitID="{8E0933B5-22DA-4844-8E69-87662F97E0D5}" />
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

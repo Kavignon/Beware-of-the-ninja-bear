@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{8E0933B5-22DA-4844-8E69-87662F97E0D5}" SchemaVersion="62">
+	<AudioObjects>
+		<WorkUnit Name="Ninja_Bear" ID="{8E0933B5-22DA-4844-8E69-87662F97E0D5}" PersistMode="Standalone">
+			<ChildrenList>
+				<RandomSequenceContainer Name="Bear Attack" ID="{F77E0442-1AA7-4F05-A871-D8D34F7985CB}" ShortID="795835504">
+					<PropertyList>
+						<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True" />
+						<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="4" />
+						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0" />
+						<Property Name="RandomOrSequence" Type="int16" Value="0" />
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="Bear Attempt" ID="{9EBBB498-57A9-41B9-8E42-DAEAD9C10BAE}" ShortID="937653348">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="bear_whoosh" ID="{2BB8C2EC-F5D0-43E8-95E7-C4CB5C8B28B0}" ShortID="458068144" Type="SoundFX">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="bear_whoosh" ID="{A512769C-6196-4268-8F9E-0BE2D3811604}" ShortID="979106638">
+											<Language>SFX</Language>
+											<AudioFile>bear_whoosh.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ConversionInfo>
+										<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+									</ConversionInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="bear_whoosh" ID="{A512769C-6196-4268-8F9E-0BE2D3811604}" Platform="Linked" />
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="bear_whoosh_2" ID="{CD491784-B4FB-458C-8FDD-90494C55DF71}" ShortID="829796798" Type="SoundFX">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="bear_whoosh_2" ID="{6038E89A-9F14-418F-96EA-640CDD69661D}" ShortID="81072497">
+											<Language>SFX</Language>
+											<AudioFile>bear_whoosh_2.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ConversionInfo>
+										<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+									</ConversionInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="bear_whoosh_2" ID="{6038E89A-9F14-418F-96EA-640CDD69661D}" Platform="Linked" />
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="bear_whoosh_3" ID="{93B33BEB-4056-48CE-B334-32C31B2385ED}" ShortID="66765832" Type="SoundFX">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="bear_whoosh_3" ID="{3DC10246-1EF0-4D1B-9B24-E68EDE980585}" ShortID="1018130070">
+											<Language>SFX</Language>
+											<AudioFile>bear_whoosh_3.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ConversionInfo>
+										<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+									</ConversionInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="bear_whoosh_3" ID="{3DC10246-1EF0-4D1B-9B24-E68EDE980585}" Platform="Linked" />
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ConversionInfo>
+								<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+							</ConversionInfo>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Win_Lose" ID="{CB0CD952-0316-408B-83EE-A31934EDF60C}" ShortID="140948837">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="Bear_Attack" ID="{32C0CC72-402C-4F96-89F7-3D8EDD0811E9}" ShortID="246486502">
+									<PropertyList>
+										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True" />
+										<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3" />
+										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.2" />
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0" />
+										<Property Name="RandomOrSequence" Type="int16" Value="0" />
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="DEAD" ID="{790F89E8-C5AB-48BB-A292-713D0FA96CD0}" ShortID="634717048" Type="SoundFX">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-16</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEAD" ID="{84A43CA1-891D-4142-8A1D-182612781D50}" ShortID="1024440226">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.124129969000729" />
+														<Property Name="FadeOutDuration" Type="Real64" Value="1.30813890408461" />
+														<Property Name="LoopBegin" Type="Real64" Value="0.114581509846827" />
+														<Property Name="LoopEnd" Type="Real64" Value="4.01035284463895" />
+														<Property Name="OverrideWavLoop" Type="bool" Value="True" />
+														<Property Name="TrimEnd" Type="Real64" Value="5.33758866703136" />
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEAD.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ConversionInfo>
+												<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+											</ConversionInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="DEAD" ID="{84A43CA1-891D-4142-8A1D-182612781D50}" Platform="Linked" />
+											</ActiveSourceList>
+										</Sound>
+										<RandomSequenceContainer Name="Bear Growl" ID="{68AA9328-7CDA-4216-A829-CAB398075445}" ShortID="420093815">
+											<PropertyList>
+												<Property Name="InitialDelay" Type="Real64">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="bear_growl_1" ID="{1AEB311D-A353-4F8C-9C34-F687B536B5A9}" ShortID="946347995" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="bear_growl_1" ID="{CF94D40F-E665-488E-840D-D0722A2CB75E}" ShortID="68730562">
+															<Language>SFX</Language>
+															<AudioFile>bear_growl_1.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ConversionInfo>
+														<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+													</ConversionInfo>
+													<ActiveSourceList>
+														<ActiveSource Name="bear_growl_1" ID="{CF94D40F-E665-488E-840D-D0722A2CB75E}" Platform="Linked" />
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="bear_growl_2" ID="{A26C0450-553F-4EE7-9ECB-DD6F1F9E9AC9}" ShortID="989128383" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="bear_growl_2" ID="{180C6195-CF35-45A5-B4DF-24264BE7FDF6}" ShortID="252679874">
+															<Language>SFX</Language>
+															<AudioFile>bear_growl_2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ConversionInfo>
+														<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+													</ConversionInfo>
+													<ActiveSourceList>
+														<ActiveSource Name="bear_growl_2" ID="{180C6195-CF35-45A5-B4DF-24264BE7FDF6}" Platform="Linked" />
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="bear_growl_3" ID="{EB1AA7D7-D95A-4621-8F68-E7435FEAE7C3}" ShortID="167372509" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="bear_growl_3" ID="{ED2E42F1-2E75-485A-A971-CD5A0BA4C516}" ShortID="679539836">
+															<Language>SFX</Language>
+															<AudioFile>bear_growl_3.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ConversionInfo>
+														<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+													</ConversionInfo>
+													<ActiveSourceList>
+														<ActiveSource Name="bear_growl_3" ID="{ED2E42F1-2E75-485A-A971-CD5A0BA4C516}" Platform="Linked" />
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<ConversionInfo>
+												<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+											</ConversionInfo>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Claw" ID="{49FE0185-07BD-4A15-BB1E-2FB81E7C4549}" ShortID="505639778">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="bear_claw_human" ID="{52122049-BC08-4A95-AC73-42A1428EDA61}" ShortID="217825820" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="bear_claw_human" ID="{53F4B038-D157-4203-AFBA-3C41979CB32D}" ShortID="1059879043">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="0.0229660831509847" />
+																<Property Name="LoopEnd" Type="Real64" Value="0.653576449671772" />
+																<Property Name="OverrideWavLoop" Type="bool" Value="True" />
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>bear_claw_human.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ConversionInfo>
+														<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+													</ConversionInfo>
+													<ActiveSourceList>
+														<ActiveSource Name="bear_claw_human" ID="{53F4B038-D157-4203-AFBA-3C41979CB32D}" Platform="Linked" />
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="bear_claw_human_2" ID="{580FAE06-0510-4DD3-8F3C-C4EF95096CE9}" ShortID="1006320274" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="bear_claw_human_2" ID="{B5E85B46-9F19-4FB9-91D1-B25FAFCB35A6}" ShortID="270601422">
+															<Language>SFX</Language>
+															<AudioFile>bear_claw_human_2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ConversionInfo>
+														<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+													</ConversionInfo>
+													<ActiveSourceList>
+														<ActiveSource Name="bear_claw_human_2" ID="{B5E85B46-9F19-4FB9-91D1-B25FAFCB35A6}" Platform="Linked" />
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="bear_claw_human_3" ID="{EBA62172-72F7-4CDF-BF99-D4931E5C4479}" ShortID="16885782" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="bear_claw_human_3" ID="{6ED55124-F617-46FC-99D8-F9F1C06D610B}" ShortID="537183694">
+															<Language>SFX</Language>
+															<AudioFile>bear_claw_human_3.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ConversionInfo>
+														<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+													</ConversionInfo>
+													<ActiveSourceList>
+														<ActiveSource Name="bear_claw_human_3" ID="{6ED55124-F617-46FC-99D8-F9F1C06D610B}" Platform="Linked" />
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<ConversionInfo>
+												<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+											</ConversionInfo>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<ConversionInfo>
+										<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+									</ConversionInfo>
+									<Playlist>
+										<ItemRef Name="Claw" ID="{49FE0185-07BD-4A15-BB1E-2FB81E7C4549}" />
+										<ItemRef Name="DEAD" ID="{790F89E8-C5AB-48BB-A292-713D0FA96CD0}" />
+										<ItemRef Name="Bear Growl" ID="{68AA9328-7CDA-4216-A829-CAB398075445}" />
+									</Playlist>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Human_Dodge" ID="{336857A6-A8C9-48A4-820D-FA8AA4438886}" ShortID="1065667016">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="human_dodge_success" ID="{531A58E0-F470-4137-8648-CFDC5315A106}" ShortID="694734357" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="human_dodge_success" ID="{2276EF88-60F6-4BA8-9774-E2214B4B438C}" ShortID="666350449">
+													<Language>SFX</Language>
+													<AudioFile>human_dodge_success.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ConversionInfo>
+												<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+											</ConversionInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="human_dodge_success" ID="{2276EF88-60F6-4BA8-9774-E2214B4B438C}" Platform="Linked" />
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="human_dodge_success_2" ID="{5FAC5243-2C4E-4DB1-A217-A2672EAE4D19}" ShortID="266746198" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="human_dodge_success_2" ID="{73CBE29D-1E69-4CC0-BE03-E4E37B03AA6A}" ShortID="380790337">
+													<Language>SFX</Language>
+													<AudioFile>human_dodge_success_2.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ConversionInfo>
+												<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+											</ConversionInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="human_dodge_success_2" ID="{73CBE29D-1E69-4CC0-BE03-E4E37B03AA6A}" Platform="Linked" />
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="human_dodge_success_3" ID="{58374100-13EC-47EE-85C1-17C2BAD5B47C}" ShortID="168665896" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="human_dodge_success_3" ID="{FF3D3A7F-C5D1-4CE2-8CA6-9163A56EFC48}" ShortID="696520243">
+													<Language>SFX</Language>
+													<AudioFile>human_dodge_success_3.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ConversionInfo>
+												<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+											</ConversionInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="human_dodge_success_3" ID="{FF3D3A7F-C5D1-4CE2-8CA6-9163A56EFC48}" Platform="Linked" />
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<ConversionInfo>
+										<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+									</ConversionInfo>
+								</RandomSequenceContainer>
+							</ChildrenList>
+							<ConversionInfo>
+								<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+							</ConversionInfo>
+						</RandomSequenceContainer>
+					</ChildrenList>
+					<ConversionInfo>
+						<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+					</ConversionInfo>
+					<Playlist>
+						<ItemRef Name="Bear Attempt" ID="{9EBBB498-57A9-41B9-8E42-DAEAD9C10BAE}" />
+						<ItemRef Name="Win_Lose" ID="{CB0CD952-0316-408B-83EE-A31934EDF60C}" />
+					</Playlist>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Eat_Score" ID="{DB1450D9-59BC-44E7-8E8D-B0CFE56974B7}" ShortID="24621437">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="eat_swallow_score_1" ID="{93A7EA10-BE3F-4B21-87B1-0173FDFFEA59}" ShortID="863001302" Type="SoundFX">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="eat_swallow_score_1" ID="{E9766409-A759-45F6-9F9B-E82C1A1C3D8F}" ShortID="369042622">
+									<Language>SFX</Language>
+									<AudioFile>eat_swallow_score_1.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ConversionInfo>
+								<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+							</ConversionInfo>
+							<ActiveSourceList>
+								<ActiveSource Name="eat_swallow_score_1" ID="{E9766409-A759-45F6-9F9B-E82C1A1C3D8F}" Platform="Linked" />
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="eat_swallow_score_2" ID="{AF2CD8F8-6F6E-4DE2-AB27-A6B7645D7357}" ShortID="371592565" Type="SoundFX">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="eat_swallow_score_2" ID="{71ACB5D5-ED6E-4DF3-9D95-157255FB6152}" ShortID="437926864">
+									<Language>SFX</Language>
+									<AudioFile>eat_swallow_score_2.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ConversionInfo>
+								<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+							</ConversionInfo>
+							<ActiveSourceList>
+								<ActiveSource Name="eat_swallow_score_2" ID="{71ACB5D5-ED6E-4DF3-9D95-157255FB6152}" Platform="Linked" />
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="eat_swallow_score_3" ID="{38528E52-818E-4C95-B694-2A8DBC5B6678}" ShortID="471427848" Type="SoundFX">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C8F23A08-B3A2-4CA1-84BD-D3EBCE5B6268}" />
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="eat_swallow_score_3" ID="{EEFF4839-5B8E-4741-B992-D27B885D6B34}" ShortID="317622671">
+									<Language>SFX</Language>
+									<AudioFile>eat_swallow_score_3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ConversionInfo>
+								<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+							</ConversionInfo>
+							<ActiveSourceList>
+								<ActiveSource Name="eat_swallow_score_3" ID="{EEFF4839-5B8E-4741-B992-D27B885D6B34}" Platform="Linked" />
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ConversionInfo>
+						<ConversionRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" />
+					</ConversionInfo>
+				</RandomSequenceContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
