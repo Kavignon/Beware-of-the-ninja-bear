@@ -6,12 +6,13 @@ public class EndGameManager : MonoBehaviour {
 
 
 	public float gameDurationTimer = 0;
-	public float timeLimit = 120;// This is the time limit
+	public float timeLimit = 60;// This is the time limit
 	public bool isEndGame;
 	public GameObject[] currentPlayers;
 	public int[] playerRanking;
 	public float timer;
 	public float reloadTime =5;
+	public string[] playerScores;
 
 	// Use this for initialization
 	void Start () {
@@ -54,6 +55,7 @@ public class EndGameManager : MonoBehaviour {
 	{
 		isEndGame = true;
 		gameDurationTimer = timeLimit;
+		AddRemainingHealthToScore ();
 		EstablishRanking ();
 		ShowRanking ();
 	}
@@ -92,11 +94,24 @@ public class EndGameManager : MonoBehaviour {
 
 	void ShowRanking()
 	{
-		for (int i = 0; i < playerRanking.Length; i++)
+		for(int i=0;i>4;i++)
 		{
-			Console.WriteLine(playerRanking[i]);
+			playerScores[i]="The player : "+(i+1)+ " has :" +currentPlayers[i].GetComponent<Player>().currentScore;
 		}
-		Console.ReadLine();
+
+	}
+
+	void AddRemainingHealthToScore()
+	{
+		
+		foreach(GameObject go in currentPlayers)
+		{
+			if(go.GetComponent<Player>().playerHealth.currentHealth >0)
+			{
+			go.GetComponent<Player>().currentScore+= go.GetComponent<Player>().playerHealth.currentHealth;
+			}
+		}
+		
 	}
 
 

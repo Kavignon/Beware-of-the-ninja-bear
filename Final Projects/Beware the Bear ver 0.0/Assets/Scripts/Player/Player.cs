@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
 	
 	public int currentScore; // player's current score
 	public NewPlayerHealth playerHealth;
+	public int playerNumber;
 	
 	
 	
