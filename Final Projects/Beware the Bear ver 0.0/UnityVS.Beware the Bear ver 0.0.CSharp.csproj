@@ -161,21 +161,6 @@
     <Compile Include="Assets\Wwise\Deployment\Components\AkInitializer.cs" />
     <Compile Include="Assets\Wwise\Deployment\Components\AkMemBankLoader.cs" />
     <Compile Include="Assets\Wwise\Deployment\Components\AkState.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkSwitch.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkTerminator.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerBase.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerCollisionEnter.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerCollisionExit.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerDisable.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerEnable.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerEnter.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerExit.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerMouseDown.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerMouseEnter.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerMouseExit.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerMouseUp.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkUnityEventHandler.cs" />
-    <Compile Include="Assets\Wwise\Deployment\Components\AkUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\Outline\outline.shader" />
@@ -220,7 +205,6 @@
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Wood.txt" />
     <None Include="Assets\StreamingAssets\desc.txt" />
     <None Include="Assets\Wwise\Readme.txt" />
-    <None Include="Assets\Wwise\Version.txt" />
     <None Include="Assets\WwiseSettings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />

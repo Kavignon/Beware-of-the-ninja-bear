@@ -102,7 +102,6 @@
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Wood.txt" />
     <None Include="Assets\StreamingAssets\desc.txt" />
     <None Include="Assets\Wwise\Readme.txt" />
-    <None Include="Assets\Wwise\Version.txt" />
     <None Include="Assets\WwiseSettings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
