@@ -8,9 +8,7 @@ public class Food : MonoBehaviour
     public float speedModifier;
     public float speedModifierDuration;
     public int healthRestored;
-
     private GameObject player;
-
     public int playerNumber;
     public bool canPickup;
 
@@ -60,12 +58,18 @@ public class Food : MonoBehaviour
             {
                 player.GetComponent<ControllerManager>().anim.SetFloat("Eating", 1);
                 player.GetComponent<HealthManager>().currentHealth += healthRestored;
-				AttributeScore();
+				AttributeScore(pointValue);
                 Destroy(gameObject);
             }
         }
     }
 
-	public void AttributeScore(){
+	public void AttributeScore(int value)
+	{
+		if(player is Player)
+		{
+			var currentPlayer = player as Player;
+			currentPlayer.UpdateCurrentScore(value);
 		}
+	}
 }

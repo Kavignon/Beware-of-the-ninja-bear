@@ -54,6 +54,11 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	void UpdateCurrentScore(int value)
+	{
+		currentScore += value;
+	}
+
 
 
 

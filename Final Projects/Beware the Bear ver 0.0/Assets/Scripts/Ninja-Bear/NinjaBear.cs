@@ -2,41 +2,43 @@
 using System.Collections;
 public class NinjaBear : MonoBehaviour
 {
-
 	public bool canBeSummoned=true;
 	Animator ninjaBearAnimation;
 	AudioSource ninjaBearAudio;
 	public AudioClip smokeClip;
 	public AudioClip damageClip;
-	GameObject player; 								// Reference to the player GameObject.
-	NewPlayerHealth playerHealth;                  // Reference to the player's health.
+	GameObject player; 							
+	NewPlayerHealth playerHealth;                
 	float timer;
 	public float ninjaStrenght;
-	//AttackEnum randomAttack;
+	AttackEnum randomAttack;
 	GameObject[] players;
-
 	public float gameDurationTimer = 0;
-	public float timeLimit = 10;// This is the time limit
+	public float randomAttackTime;
+	public float timeLimit = 300;// This is the time limit
 	
 	// Use this for initialization
 	void Start()
 	{
 		canBeSummoned = false;
-		ninjaStrenght = 35;
 		timer += Time.deltaTime;
 		players = GameObject.FindGameObjectsWithTag("Player");
-		
 	}
 	
 	public void PerformTestAttackOnPlayer()
 	{
 		int indexPlayer = Random.Range (0, players.Length);
-		players[indexPlayer].GetComponent<Player>().playerHealth.TakeDamageFromBear((int)ninjaStrenght);
+		players[indexPlayer].
+			GetComponent<Player>()
+				.playerHealth
+					.TakeDamageFromBear(players[indexPlayer]
+				                     .GetComponent<Player>()
+				                    	.playerHealth.currentHealth);
 	}
-	
-	void PerformPatternAttack(Player p)
+
+	void PerformAttack(Player p)
 	{
-		p.playerHealth.TakeDamageFromBear ((int)ninjaStrenght);
+		p.playerHealth.TakeDamageFromBear (p.playerHealth.currentHealth);
 	}
 	
 	void Awake()
@@ -44,6 +46,8 @@ public class NinjaBear : MonoBehaviour
 		// Setting up the references.
 		ninjaBearAnimation = GetComponent <Animator> ();
 		ninjaBearAudio = GetComponent <AudioSource> ();
+		System.Random random = new System.Random();
+		randomAttackTime = random.Next (0, timeLimit);
 	}
 	
 	// Update is called once per frame
@@ -51,16 +55,83 @@ public class NinjaBear : MonoBehaviour
 		if (gameDurationTimer <= timeLimit)
 		{
 			gameDurationTimer+=Time.deltaTime;
-			
-			
 		}
-		if (gameDurationTimer >= 10) 
+		SummonBearAI ();
+		
+	}
+
+	public void SummonBearAI()
+	{
+		if (VerifyEligibleBearAISummoning ()) 
 		{
-			SummonNinjaBear();
+			PerformAttackPattern(SelectAttackPattern());
+		}
+	}
+
+	public bool VerifyEligibleBearAISummoning()
+	{
+		return randomAttackTime > 0;
+	}
+
+	void PerformAttackPattern(AttackOptionEnum attackOption)
+	{
+		if (attackOption.ToString() == AttackOptionEnum.AttackAllPlayers.ToString())
+		{
+			foreach (Player p in players)
+			{
+				PerformAttack(p);
+			}
+		}
+		else if (attackOption.ToString() == AttackOptionEnum.AttackAPlayer.ToString())
+		{
+			System.Random random = new System.Random();
+			int selectedPlayerIndex = random.Next(0, 4);
+			PerformAttack(players[selectedPlayerIndex].GetComponent<Player>()); 
+		}
+		else if (attackOption.ToString() == AttackOptionEnum.AttackUnHealthyPlayers.ToString())
+		{
+			foreach (Player p in players)
+			{
+				if (! p.playerHealth.isHealthyPlayer)
+				{
+					PerformAttack(p);
+				}
+			}
+		}
+		else
+		{
+			foreach (Player p in players)
+			{
+				if (p.playerHealth.isHealthyPlayer)
+				{
+					PerformAttack(p);
+				}
+			}
 		}
 		
 	}
+
+
+	AttackOptionEnum SelectAttackPattern(){
+		System.Array values = System.Enum.GetValues(typeof(AttackOptionEnum));
+		System.Random random = new System.Random();
+		AttackOptionEnum randomAttack = (AttackOptionEnum)values.GetValue(random.Next(values.Length));
+		return randomAttack;
+	}
+
+
+	/*	void PerformSurpriseAtttack(Player player)
+	{
+		timer = 0.0f;
+		SelectRandomAttack();
+		ninjaBearAnimation.SetTrigger(randomAttack.ToString());
+		ninjaBearAudio.clip = damageClip;
+		//player.playerHealth.TakeDamageFromBear ((int)ninjaStrenght);
+		
+	}
+	*/
 	
+	/*
 	public void SummonNinjaBear()
 	{
 		if (canBeSummoned) {
@@ -69,13 +140,10 @@ public class NinjaBear : MonoBehaviour
 			PerformTestAttackOnPlayer();
 		}
 	}
-	
-	AttackOptionEnum RandomiseAttackOption(){
-		System.Array values = System.Enum.GetValues(typeof(AttackOptionEnum));
-		System.Random random = new System.Random();
-		AttackOptionEnum randomAttack = (AttackOptionEnum)values.GetValue(random.Next(values.Length));
-		return randomAttack;
-	}
+*/
+
+
+
 	/*
     public int waitingPeriodForSummoning = 5000; // A user shall wait 5 seconds before the ninja bear can be summoned
 
