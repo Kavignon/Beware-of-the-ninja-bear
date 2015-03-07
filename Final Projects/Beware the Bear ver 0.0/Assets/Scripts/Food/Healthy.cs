@@ -6,7 +6,6 @@ public class Healthy : Food {
 	// Use this for initialization
 	protected void Awake () {
         base.Awake();
-
         pointValue = 200;
         speedModifier = 2f;
         speedModifierDuration = 10f;

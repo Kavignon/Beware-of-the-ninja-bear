@@ -4,7 +4,7 @@ using System.Collections;
 public enum AttackOptionEnum  {
 
 	AttackHealthyPlayers,
-	AttackFatPlayers,
+	AttackUnHealthyPlayers,
 	AttackAllPlayers,
 	AttackAPlayer
 }

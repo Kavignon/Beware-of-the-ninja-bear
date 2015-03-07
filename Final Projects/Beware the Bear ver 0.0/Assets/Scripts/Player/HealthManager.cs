@@ -39,7 +39,6 @@ public class HealthManager : MonoBehaviour
         /*
         If user consume food, increase player's health
         */
-
         ApplyFoodEffect();
     }
 
@@ -72,8 +71,6 @@ public class HealthManager : MonoBehaviour
 
     public void TakeDamage()
     {
-
-        //currentHealth = (int)Mathf.Clamp(currentHealth - ((1000 / sanityDrainSpeed)), 0.0f, startingHealth);
         currentHealth = (int)Mathf.Lerp(currentHealth, 0f, Time.deltaTime * sanityDrainSpeed/1000);
         healthSlider.value = currentHealth;
         ModifyHealthBarColor();

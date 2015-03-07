@@ -16,20 +16,15 @@ public class FoodManager : MonoBehaviour {
 
 	void Start()
 	{
-		GenerateFood ();
-	}
-	void GenerateFood()
-	{
 		InstantiateFood ();
 	}
 
 	void InstantiateFood()
 	{
-
 		if (foodCount == 25)
 		{
 			instantiateCount++;
-			DeleteAndReload()
+			DeleteAndReload();
 		}
 		int spawnPointIndex = Random.Range (0, spawnFoodPoints.Length);
 
@@ -51,13 +46,5 @@ public class FoodManager : MonoBehaviour {
 			}
 			InstantiateFood();
 		}
-		else
-		{
-			return;
-		}
 	}
-
-
-
-
 }
