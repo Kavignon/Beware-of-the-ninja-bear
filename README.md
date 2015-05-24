@@ -1,0 +1,2 @@
+# Beware-of-the-ninja-bear
+It's a game where players use an xbox or ps4 controller. Each player are set in a corner of the game. Players are hungry so their health bar is always decreasing. To survive the rush hour, they must eat food. In the game there's two types of food: fast food and healthy food. Each kind of food has its ow impact. Eating fast food increasing the health bar faster but reduces the player's speed while he's moving. Eating healthy food increasing the health bar slower than fast food but increases the player's speed.
